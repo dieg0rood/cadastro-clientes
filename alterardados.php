@@ -5,23 +5,23 @@
     //DADOS DO BANCO DE DADOS
     $servidor = "localhost";
     $usuario = "root";
-    $senha="";
+    $senhadb="";
     $dbname="cadastro";
 
     //CRIAR CONEXAO COM BANCO
-    $conn = mysqli_connect($servidor,$usuario,$senha,$dbname);
+    $conn = mysqli_connect($servidor,$usuario,$senhadb,$dbname);
 
     //CHECAR CONEXAO
     if (!$conn) {
         die("Conexao falhou: " . mysqli_connect_error());
     }
 
-    //COMANDO PARA LOCALIZAR
+    //COMANDO PARA LOCALIZAR ULTIMO CLIENTE CADASTRADO VIA PRIMARY KEY DECRESCENTE
     $localizar = "SELECT * FROM clientes ORDER BY id_cliente DESC";
     $localizar = mysqli_query($conn, $localizar);
     $registro = $localizar->fetch_assoc();
 
-    //ALOCANDO DADOS EM VARIAVEIS
+    //ALOCANDO DADOS EM VARIAVEIS PARA PREENCHIMENTO PREVIO DO FORMULARIO DE ALTERAÇAO DE DADOS
     $idCliente = $registro['id_cliente'];
     $nomeOld = $registro['nome_cliente'];
     $senhaOld = $registro['senha_cliente'];
@@ -57,7 +57,6 @@
             $(document).ready(function() {
 
                 //MASCARAS DO FORMULARIO
-                //$("#dataNasc").mask('00/00/0000')
                 $("#telefone").mask('(00)0000-0000')
 
             }

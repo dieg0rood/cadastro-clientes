@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 
-
-
-
     <html lang="pt-br">
         <head>
             <meta charset="UTF-8">
@@ -33,11 +30,11 @@
                     //DADOS DO BANCO DE DADOS
                     $servidor = "localhost";
                     $usuario = "root";
-                    $senha="";
+                    $dbsenha="";
                     $dbname="cadastro";
 
                     //CRIAR CONEXAO COM BANCO
-                    $conn = mysqli_connect($servidor,$usuario,$senha,$dbname);
+                    $conn = mysqli_connect($servidor,$usuario,$dbsenha,$dbname);
 
                     //CHECAR CONEXAO
                     if (!$conn) {
@@ -66,7 +63,7 @@
                     $atualizarDataNasc = "UPDATE clientes   SET data_nasc_cliente = '$dataNasc' WHERE id_cliente = '$idCliente' ";
 
 
-                    //VALIDAR O ALTERAÇÕES ENTRE O CADASTRO JÁ ALOCADO NO BANCO COM O FORMULARIO RECEBIDO, CASO HAJA, É REALIZADA A ATUALIZAÇÃO NO BANCO.
+                    //VALIDAR O ALTERAÇÕES ENTRE O CADASTRO JÁ ALOCADO NO BANCO COM O FORMULARIO RECEBIDO, CASO HAJA ALTERACOES, É REALIZADA A ATUALIZAÇÃO NO BANCO.
 
                     if($nomeOld != $nome){
                         if (mysqli_query($conn, $atualizarNome)) {
@@ -115,9 +112,11 @@
                 </div>
 
                 <div class="textobaixo">
+                    <!-- LINK DE ACESSO PARA ALTERAR DADOS-->
                     <div class="botao">
                         <a href="alterardados.php" class="btn btn-primary">Alterar Dados pessoais</a>
                     </div>
+                    <!-- LINK DE ACESSO PARA RETORNAR AO CADASTRO-->
                     <div class="botao">
                         <a href="index.html" class="btn btn-primary">Novo Cadastro</a>
                     </div>

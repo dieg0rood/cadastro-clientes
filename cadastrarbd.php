@@ -29,11 +29,11 @@
                     //DADOS DO BANCO DE DADOS
                     $servidor = "localhost";
                     $usuario = "root";
-                    $senha="";
+                    $dbsenha="";
                     $dbname="cadastro";
 
                     //CRIAR CONEXAO COM BANCO
-                    $conn = mysqli_connect($servidor,$usuario,$senha,$dbname);
+                    $conn = mysqli_connect($servidor,$usuario,$dbsenha,$dbname);
 
                     //CHECAR CONEXAO
                     if (!$conn) {
@@ -63,11 +63,11 @@
             </div>
 
             <div class="textobaixo">
-
+                <!-- LINK DE ACESSO PARA ALTERAR DADOS-->
                 <div class="botao">
                     <a href="alterardados.php" class="btn btn-primary">Alterar Dados pessoais</a>
                 </div>
-
+                <!-- LINK DE ACESSO PARA RETORNAR AO CADASTRO-->
                 <div class="botao">
                     <a href="index.html" class="btn btn-primary">Novo Cadastro</a>
                 </div>
